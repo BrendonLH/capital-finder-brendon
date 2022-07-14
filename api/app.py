@@ -16,10 +16,14 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             print(r, 'this is in the response')
-            data = r.json()
-            print(data)
-            country = []
-            message = "hitting the get request"
+            country = r.json()
+            capital = []
+            for cap in country:
+                country_capital = cap["capital"][0]
+                print(country_capital)
+                capital.append(country_capital)
+            # print(data)
+            message = str(capital)
 
         else:
             message = "Select A Country or A Capital"
