@@ -35,12 +35,12 @@ class handler(BaseHTTPRequestHandler):
             r = requests.get(url + dic["capital"])
             data = r.json()
             country = ""
-            for name in data:
+            for cunt in data:
                 country_capital = cunt["capital"][0]
                 print(country_capital)
-                capital += country_capital
+                country += country_capital
             # print(data)
-            message = f'capital of {dic["country"]} is {capital} '
+            message = f'capital of {dic["capital"]} is {country} '
 
         else:
             message = "Select A Country or A Capital"
