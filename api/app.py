@@ -4,6 +4,10 @@ import requests
 
 
 class handler(BaseHTTPRequestHandler):
+    """[Purpose]: parses out the url to get the query
+    [Format]: /api/app?(argument)=(argument)
+    [Arguments]: country=country name, capital=capital name
+    [Example]: /api/app?country=Peru"""
     def do_GET(self):
         s = self.path
         url_components = parse.urlsplit(s)
@@ -12,18 +16,31 @@ class handler(BaseHTTPRequestHandler):
         dic = dict(query_string_list)
         print(dic)
 
+        # url and other vars used across the app
+        url = "https://restcountries.com/v3.1/name/"
+
+        # specification for URL parse for country lookup
         if "country" in dic:
-            url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             print(r, 'this is in the response')
-            country = r.json()
-            capital = []
-            for cap in country:
+            data = r.json()
+            capital = ""
+            for cap in data:
                 country_capital = cap["capital"][0]
                 print(country_capital)
-                capital.append(country_capital)
+                capital += country_capital
             # print(data)
-            message = str(capital)
+            message = f'capital of {dic["country"]} is {capital} '
+        elif "capital" in dic:
+            r = requests.get(url + dic["capital"])
+            data = r.json()
+            country = ""
+            for name in data:
+                country_capital = cunt["capital"][0]
+                print(country_capital)
+                capital += country_capital
+            # print(data)
+            message = f'capital of {dic["country"]} is {capital} '
 
         else:
             message = "Select A Country or A Capital"
