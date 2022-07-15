@@ -17,30 +17,30 @@ class handler(BaseHTTPRequestHandler):
         print(dic)
 
         # url and other vars used across the app
-        url = "https://restcountries.com/v3.1/name/"
 
         # specification for URL parse for country lookup
         if "country" in dic:
+            url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
-            print(r, 'this is in the response')
             data = r.json()
+            print(data)
             capital = ""
             for cap in data:
                 country_capital = cap["capital"][0]
-                print(country_capital)
                 capital += country_capital
-            # print(data)
             message = f'capital of {dic["country"]} is {capital} '
+
         elif "capital" in dic:
+            url = "https://restcountries.com/v3.1/capital/"
             r = requests.get(url + dic["capital"])
             data = r.json()
-            country = ""
+            print(data)
+            country = ''
             for cunt in data:
-                country_capital = cunt["capital"][0]
+                country_capital = cunt['altSpellings'][1]
                 print(country_capital)
                 country += country_capital
-            # print(data)
-            message = f'capital of {dic["capital"]} is {country} '
+            message = f'The capital of {country} is {dic["capital"]}'
 
         else:
             message = "Select A Country or A Capital"
