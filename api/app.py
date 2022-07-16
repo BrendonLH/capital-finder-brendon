@@ -36,8 +36,8 @@ class handler(BaseHTTPRequestHandler):
             data = r.json()
             print(data)
             country = ''
-            for cunt in data:
-                country_capital = cunt['altSpellings'][1]
+            for count in data:
+                country_capital = str(count["name"]["common"])
                 print(country_capital)
                 country += country_capital
             message = f'The capital of {country} is {dic["capital"]}'
