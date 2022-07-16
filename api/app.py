@@ -12,9 +12,7 @@ class handler(BaseHTTPRequestHandler):
         s = self.path
         url_components = parse.urlsplit(s)
         query_string_list = parse.parse_qsl(url_components.query)
-        print(url_components)
         dic = dict(query_string_list)
-        print(dic)
 
         # url and other vars used across the app
 
@@ -23,7 +21,6 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
-            print(data)
             capital = ""
             for cap in data:
                 country_capital = cap["capital"][0]
@@ -34,11 +31,9 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/capital/"
             r = requests.get(url + dic["capital"])
             data = r.json()
-            print(data)
             country = ''
             for count in data:
                 country_capital = str(count["name"]["common"])
-                print(country_capital)
                 country += country_capital
             message = f'The capital of {country} is {dic["capital"]}'
 
