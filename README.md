@@ -4,9 +4,11 @@
 
 ## Links and Resources
 back-end server url (when applicable)
-[Vercel Server](https://vercel.com/brendonlh/capital-finder-brendon)
+- [Vercel Server](https://vercel.com/brendonlh/capital-finder-brendon)
+
 front-end application (when applicable)
-[Vercel Front End](https://capital-finder-brendon.vercel.app/)
+- [Vercel Front End - Capital](https://capital-finder-brendon.vercel.app/api/app?capital=london)
+- [Vercel Front End - Country](https://capital-finder-brendon.vercel.app/api/app?country=mexico)
 ## Setup
 .env requirements (where applicable)
 i.e.
@@ -28,4 +30,4 @@ i.e.
 
 ## Tests
 How do you run tests?
--   no tests for server API calls
+-   no tests for server API call
