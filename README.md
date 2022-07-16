@@ -8,7 +8,7 @@ back-end server url (when applicable)
 
 front-end application (when applicable)
 - [Vercel Front End - Capital](https://capital-finder-brendon.vercel.app/api/app?capital=london)
-- [Vercel Front End - country](https://capital-finder-brendon.vercel.app/api/app?country=mexico)
+- [Vercel Front End - Country](https://capital-finder-brendon.vercel.app/api/app?country=mexico)
 ## Setup
 .env requirements (where applicable)
 i.e.
@@ -30,4 +30,4 @@ i.e.
 
 ## Tests
 How do you run tests?
--   no tests for server API calls
+-   no tests for server API call
